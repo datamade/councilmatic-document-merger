@@ -10,5 +10,6 @@ services:
     volumes:
       - .:/app
     environment:
+      S3_BUCKET_NAME: datamade-metro-pdf-merger-testing
       attachment_links: '["https://metro.legistar.com/ViewReport.ashx?M=R&N=TextL5&GID=557&ID=7916&GUID=LATEST&Title=Board+Report", "http://metro.legistar1.com/metro/attachments/d368424c-b80c-4f9a-aa1d-d353194ee733.pdf", "http://metro.legistar1.com/metro/attachments/f4031730-38c1-48a3-a789-09a3f5c5862a.pdf", "http://metro.legistar1.com/metro/attachments/53d3670b-3aa3-4823-ac17-51e032395641.pdf", "http://metro.legistar1.com/metro/attachments/53985307-4ce2-4688-83e0-42c4c7a17f0e.pdf", "http://metro.legistar1.com/metro/attachments/c96860a8-a26d-4022-9b6c-ca010c3d165e.docx"]'
     command: make merged/2021-0530.pdf
