@@ -24,6 +24,5 @@ jobs:
         name: Push to GitHub Packages
         uses: docker/build-push-action@v2
         with:
-          context: .
           push: true
           tags: datamade/councilmatic-document-merger:latest
