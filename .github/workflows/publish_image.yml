@@ -18,3 +18,4 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: ghcr.io
+          repository: datamade/councilmatic-document-merger
