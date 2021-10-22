@@ -22,4 +22,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: datamade/councilmatic-document-merger:latest
+          tags: ghcr.io/datamade/councilmatic-document-merger:latest
