@@ -6,24 +6,19 @@ import json
 import os
 import sys
 
-import scrapelib
+from document_link import Link
 
 
-s = scrapelib.Scraper(retry_attempts=2)
 filenames = []
 
 for attachment_link in json.loads(
     os.environ['attachment_links'].replace('\'', '"')
 ):
-    attachment = s.get(attachment_link)
+    link = Link(attachment_link)
 
-    if 'https://metro.legistar.com/ViewReport.ashx' in attachment_link:
-        filename = 'root.pdf'
-    else:
-        filename = os.path.basename(attachment_link)
-    with open(os.path.join('attachments', filename), 'wb') as file:
-        file.write(attachment.content)
+    with open(os.path.join('attachments', link.filename), 'wb') as file:
+        file.write(link.content)
 
-    filenames.append(os.path.join('attachments', filename))
+    filenames.append(os.path.join('attachments', link.filename))
 
 sys.stdout.write(' '.join(filenames))
