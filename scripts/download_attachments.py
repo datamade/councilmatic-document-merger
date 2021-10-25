@@ -9,7 +9,7 @@ import sys
 import scrapelib
 
 
-s = scrapelib.Scraper(retry_attempts=1)
+s = scrapelib.Scraper(retry_attempts=2)
 filenames = []
 
 for attachment_link in json.loads(

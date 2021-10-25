@@ -6,7 +6,7 @@ clean :
 	find merged -type f -not -name .gitkeep -delete
 
 upload_% : merged/%.pdf
-	aws s3 cp $< s3://$$S3_BUCKET_NAME
+	aws s3 cp $< s3://$$S3_BUCKET_NAME --acl public-read
 
 merged/%.pdf : $(addsuffix .pdf,$(basename $(ATTACHMENTS)))
 	pdfunite $^ $@
