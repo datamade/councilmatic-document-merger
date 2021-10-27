@@ -22,8 +22,8 @@ class DocumentLink(object):
 
     @property
     def content(self):
-        s = scrapelib.Scraper(retry_attempts=2)
-        response = s.get(self.url)
+        s = scrapelib.Scraper(retry_attempts=3)
+        response = s.get(self.url, retry_on_404=True)
         return response.content
 
     @property

@@ -9,16 +9,17 @@ import sys
 from document_link import Link
 
 
-filenames = []
+if __name__ == '__main__':
+    filenames = []
 
-for attachment_link in json.loads(
-    os.environ['attachment_links'].replace('\'', '"')
-):
-    link = Link(attachment_link)
+    for attachment_link in json.loads(
+        os.environ['attachment_links'].replace('\'', '"')
+    ):
+        link = Link(attachment_link)
 
-    with open(os.path.join('attachments', link.filename), 'wb') as file:
-        file.write(link.content)
+        with open(os.path.join('attachments', link.filename), 'wb') as file:
+            file.write(link.content)
 
-    filenames.append(os.path.join('attachments', link.filename))
+        filenames.append(os.path.join('attachments', link.filename))
 
-sys.stdout.write(' '.join(filenames))
+    sys.stdout.write(' '.join(filenames))
