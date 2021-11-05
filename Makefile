@@ -28,3 +28,6 @@ attachments/%.pdf : attachments/%.pptx
 
 attachments/%.pdf : attachments/%.rtf
 	unoconv -f pdf $<
+
+attachments/%.pdf : attachments/%.xps
+	python scripts/convert_xps.py $<
