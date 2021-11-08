@@ -3,7 +3,7 @@ FROM python:3.9-slim
 LABEL maintainer "DataMade <info@datamade.us>"
 
 RUN apt-get update && \
-    apt-get install -y make libreoffice poppler-utils wget && \
+    apt-get install -y make libreoffice poppler-utils qpdf wget && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /app
